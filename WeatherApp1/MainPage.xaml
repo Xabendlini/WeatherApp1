@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WeatherApp1.MainPage"
+             BackgroundImageSource="weatherapppic.jpg">
+
+    <VerticalStackLayout>
+        <Frame Margin="20"
+               BackgroundColor="MintCream">
+            <Grid ColumnSpacing="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Text="Current Location:" VerticalOptions="Center" />
+                <Label Text="{Binding CurrentLocation}" Grid.Column="1" VerticalOptions="Center" />
+            </Grid>
+        </Frame>
+        <Image Source="weather.png" WidthRequest="80" HeightRequest="80" />
+
+        <Label HorizontalOptions="Center"
+               FontSize="25"
+               TextColor="White"
+               Text="{Binding Temperature, StringFormat='Temperature: {0}°C'}" />
+
+        <Grid  Margin="20" ColumnSpacing="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Frame Grid.Column="0"
+                   BackgroundColor="MintCream">
+                <VerticalStackLayout>
+                    <Image Source="humidity.png" WidthRequest="50" HeightRequest="50" />
+
+                    <Label HorizontalOptions="Center"
+                           FontSize="15"
+                           FontAttributes="Bold"
+                           TextColor="Black"
+                           Text="{Binding Humidity, StringFormat='Humidity: {0}%'}" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <Frame Grid.Column="1"
+                   BackgroundColor="MintCream">
+            <VerticalStackLayout>
+                    <Image Source="wind.png" WidthRequest="50" HeightRequest="50" />
+
+                    <Label HorizontalOptions="Center"
+                       FontSize="15"
+                       FontAttributes="Bold"
+                       TextColor="Black"
+                       Text="{Binding Wind.speed, StringFormat='Wind Speed: {0} m/s'}" />
+            </VerticalStackLayout>
+        </Frame>
+
+            <Frame Grid.Column="2"
+                   BackgroundColor="MintCream">
+                <VerticalStackLayout>
+                    <Image Source="air.png" WidthRequest="50" HeightRequest="50" />
+
+                    <Label HorizontalOptions="Center"
+                       FontSize="15"
+                       FontAttributes="Bold"
+                       TextColor="Black"
+                       Text="{Binding Pressure, StringFormat='Pressure: {0} hPa'}" />
+            </VerticalStackLayout>
+        </Frame>
+        </Grid>
+
+        <StackLayout Margin="20">
+            <Entry x:Name="entryCity" Placeholder="Enter City Name" />
+            <Button Text="Get Weather" Clicked="Button_Clicked" />
+        </StackLayout>
+        
+
+    </VerticalStackLayout>
+
+</ContentPage>
+
